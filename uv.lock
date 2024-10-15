@@ -433,7 +433,6 @@ source = { editable = "." }
 dependencies = [
     { name = "django" },
     { name = "django-appconf" },
-    { name = "django-fernet-fields" },
     { name = "django-storages", extra = ["azure", "boto3", "dropbox", "google", "libcloud", "sftp"] },
     { name = "djangorestframework" },
     { name = "python-magic" },
@@ -455,7 +454,6 @@ dev = [
 requires-dist = [
     { name = "django", specifier = ">=4.1.0" },
     { name = "django-appconf", specifier = ">=1.0.4" },
-    { name = "django-fernet-fields", specifier = ">=0.6" },
     { name = "django-storages", extras = ["azure", "boto3", "dropbox", "google", "libcloud", "sftp"], specifier = ">=1.13.2" },
     { name = "djangorestframework", specifier = ">=3.14.0" },
     { name = "python-magic", specifier = ">=0.4.27" },
@@ -484,16 +482,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/8a/f1/318684c9466968bf9
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a7/7e/ba12b9660642663f5273141018d2bec0a1cae1711f4f6d1093920e157946/django_extensions-3.2.3-py3-none-any.whl", hash = "sha256:9600b7562f79a92cbf1fde6403c04fee314608fefbb595502e34383ae8203401", size = 229868 },
 ]
-
-[[package]]
-name = "django-fernet-fields"
-version = "0.6"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cryptography" },
-    { name = "django" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/31/2a/012a6777a8d95ccb7033263a77cba098b123bece9d9dace8a258552a1014/django-fernet-fields-0.6.tar.gz", hash = "sha256:7f7e03c86d9473a42031ebade2b15be1484aad18ef5576ddab156c4667e04c4a", size = 6742 }
 
 [[package]]
 name = "django-storages"

@@ -18,7 +18,6 @@ classifiers = [
 dependencies = [
     "django>=4.1.0",
     "django-storages[azure,boto3,dropbox,google,libcloud,sftp]>=1.13.2",
-    "django-fernet-fields>=0.6",
     "django-appconf>=1.0.4",
     "python-magic>=0.4.27",
     "djangorestframework>=3.14.0",

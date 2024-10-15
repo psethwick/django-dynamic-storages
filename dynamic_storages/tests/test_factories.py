@@ -1,9 +1,10 @@
 from test_plus.test import TestCase
 
-from .factories import (TestEncryptedFileFieldModelFactory,
-                        TestEncryptedImageFieldModelFactory,
-                        TestFileStorageModelFactory,
-                        TestImageStorageModelFactory, TestStorageTargetFactory)
+from .factories import (
+    TestFileStorageModelFactory,
+    TestImageStorageModelFactory,
+    TestStorageTargetFactory,
+)
 
 
 class TestStorageTargetFactoryTestCase(TestCase):
@@ -58,49 +59,3 @@ class TestImageStorageModelFactoryTestCase(TestCase):
         tismf = TestImageStorageModelFactory(storage_target=tstf)
         self.assertIsNotNone(tismf.pk)
         self.assertIsNotNone(tismf.image.url)
-
-
-class TestEncryptedFileFieldModelFactoryTestCase(TestCase):
-    def test_gcs(self):
-        tstf = TestStorageTargetFactory(provider="gcloud")
-        tfsmf = TestEncryptedFileFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tfsmf.pk)
-        self.assertIsNotNone(tfsmf.file.url)
-        self.assertIsNotNone(tfsmf.file)
-
-    def test_aws(self):
-        tstf = TestStorageTargetFactory(provider="s3boto3")
-        tfsmf = TestEncryptedFileFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tfsmf.pk)
-        self.assertIsNotNone(tfsmf.file.url)
-        self.assertIsNotNone(tfsmf.file)
-
-    def test_azure(self):
-        tstf = TestStorageTargetFactory(provider="azure")
-        tfsmf = TestEncryptedFileFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tfsmf.pk)
-        self.assertIsNotNone(tfsmf.file.url)
-        self.assertIsNotNone(tfsmf.file)
-
-
-class TestEncryptedImageFieldModelFactoryTestCase(TestCase):
-    def test_gcs(self):
-        tstf = TestStorageTargetFactory(provider="gcloud")
-        tismf = TestEncryptedImageFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tismf.pk)
-        self.assertIsNotNone(tismf.image.url)
-        self.assertIsNotNone(tismf.image)
-
-    def test_aws(self):
-        tstf = TestStorageTargetFactory(provider="s3boto3")
-        tismf = TestEncryptedImageFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tismf.pk)
-        self.assertIsNotNone(tismf.image.url)
-        self.assertIsNotNone(tismf.image)
-
-    def test_azure(self):
-        tstf = TestStorageTargetFactory(provider="azure")
-        tismf = TestEncryptedImageFieldModelFactory(storage_target=tstf)
-        self.assertIsNotNone(tismf.pk)
-        self.assertIsNotNone(tismf.image.url)
-        self.assertIsNotNone(tismf.image)
