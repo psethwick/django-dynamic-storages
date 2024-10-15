@@ -1,64 +1,47 @@
-[tool.black]
-line-length = 178
-target-version = ['py33']
-include = '\.pyi?$'
-exclude = '''
-
-(
-  /(
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | _build
-    | buck-out
-    | build
-    | dist
-  )/
-)
-'''
-
-[tool.poetry]
+[project]
 name = "django-dynamic-storages"
-version = "0.5.3"
+version = "0.5.4"
 description = "A collection of file fields and associated components to allow for dynamic configuration of storage properties for file-based fields within Django models."
-authors = ["Patrick McClory <patrick@mcclory.io>"]
-license = "BSD-3-Clause"
-packages = [
-    { include = "dynamic_storages" },
+authors = [
+    {name = "Patrick McClory", email = "patrick@mcclory.io"},
 ]
+license = {text = "BSD-3-Clause"}
 readme = "README.md"
-homepage = "https://github.com/mcclory/django-dynamic-storages"
-repository = "https://github.com/mcclory/django-dynamic-storages"
+requires-python = ">=3.9"
 classifiers = [
-  "Development Status :: 4 - Beta",
-  "Framework :: Django :: 3.1",
-  "Intended Audience :: Developers",
-  "Natural Language :: English"
+    "Development Status :: 4 - Beta",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
 ]
 
+dependencies = [
+    "django>=4.1.0",
+    "django-storages[azure,boto3,dropbox,google,libcloud,sftp]>=1.13.2",
+    "django-fernet-fields>=0.6",
+    "django-appconf>=1.0.4",
+    "python-magic>=0.4.27",
+    "djangorestframework>=3.14.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-django = "^4.1.0"
-django-storages = {extras = ["azure", "boto3", "dropbox", "google", "libcloud", "sftp"], version = "^1.13.2"}
-django-fernet-fields = "^0.6"
-django-appconf = "^1.0.4"
-python-magic = "^0.4.27"
-djangorestframework = "^3.14.0"
+[project.urls]
+Homepage = "https://github.com/mcclory/django-dynamic-storages"
+Repository = "https://github.com/mcclory/django-dynamic-storages"
 
-[tool.poetry.group.dev.dependencies]
-black = "^23.1.0"
-isort = "^5.12.0"
-flake8 = "^6.0.0"
-autoflake = "^2.0.2"
-factory-boy = "^3.2.1"
-python-dotenv = "^0.14.0"
-django-extensions = "^3.0.9"
-django-test-plus = "^1.4.0"
+[tool.uv]
+dev-dependencies = [
+    "black>=23.1.0",
+    "isort >=5.12.0",
+    "flake8 >=6.0.0",
+    "autoflake >=2.0.2",
+    "factory-boy >=3.2.1",
+    "python-dotenv >=0.14.0",
+    "django-extensions >=3.0.9",
+    "django-test-plus >=1.4.0"
+]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.build.targets.wheel]
+packages = ["dynamic_storages"]
