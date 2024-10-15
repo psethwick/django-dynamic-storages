@@ -1,6 +1,6 @@
 [project]
 name = "django-dynamic-storages"
-version = "0.5.4"
+version = "0.5.5"
 description = "A collection of file fields and associated components to allow for dynamic configuration of storage properties for file-based fields within Django models."
 authors = [
     {name = "Patrick McClory", email = "patrick@mcclory.io"},
@@ -17,7 +17,7 @@ classifiers = [
 
 dependencies = [
     "django>=4.1.0",
-    "django-storages[azure,boto3,dropbox,google,libcloud,sftp]>=1.13.2",
+    "django-storages>=1.13.2",
     "django-appconf>=1.0.4",
 ]
 
